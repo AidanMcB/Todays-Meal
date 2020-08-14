@@ -9,3 +9,4 @@ body{
     background-attachment: fixed;
     background: linear-gradient(burlywood, saddlebrown)
 }
+    <%=form.collection_check_boxes(:ingredient_ids, @ingredients, :id, :name)%>

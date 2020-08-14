@@ -25,14 +25,23 @@ a:visited {
     font-size: 24px;
 }
 .login{
-    font-size: 18px;
+    font-size: 16px;
+    border-radius: 25px;
+    height: 3em;
+    width: 10em;
 }
 .error_style{
     color: red;
     font-size: 20px;
 }
+.signUp{
+    font-size: 16px;
+    border-radius: 25px;
+    height: 3em;
+    width: 10em;
+}
 </style>
-<h3>Log-in</h3>
+<h3>Log-In</h3>
     <% if @login_errors != nil %>
     <% @login_errors.each do |error|%>
         <li class="error_style"><%=error%></li>
@@ -53,4 +62,4 @@ a:visited {
 <br>
  <label> or </label><br><br>
 
- <a href="/users/new">Sign-Up</a>
+<a class="signUp" href="/users/new">Sign-Up</a>

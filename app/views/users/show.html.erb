@@ -7,21 +7,40 @@ body{
 }
 .user_body{
     font-size: 24px;
-    margin-left: 15px;
+    margin-left: 5%;
+}
+.info{
+    border: 1px solid pink;
+    border-radius: 25px;
+    padding: 20px;
+    background-color: rgba(255,255,255,0.45);
+    width: 50vw;
 }
 h1{
     margin-left: 15px;
+    text-shadow: 1px 1px white;
 }
 .profile_image{
     height: 150px;
     width: 150px;
 }
+.delete-btn{
+    margin-top: 2em;
+    border-radius: 25px;
+    height: 3em;
+    width: 10em;
+}
 </style>
 <h1>Profile of <%=@user.user_name%></h1>
-<img class="profile_image" src="<%=@user.img_url%>">
 <div class="user_body">
+<img class="profile_image" src="<%=@user.img_url%>">
+<br>  <br>  
+<div class="info">
 <label>Name:</label>
 <%=@user.name%>
+<br>    <br>
+<label>Username:</label>
+<%=@user.user_name%>
 <br>    <br>
 <label>Recipes:</label><br>
    <ul>
@@ -33,9 +52,10 @@ h1{
 
 <% if session[:user_id] == @user.id%>
 <%= form_with(url: "/users/#{@user.id}", method: "delete") do |form|%>
-<%= form.submit("delete user")%>
+<%= form.submit "Delete User", :class => 'delete-btn' %>
 <%end%>
 <%end%>
+</div>
 </div>
 
 

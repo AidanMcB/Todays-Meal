@@ -2,12 +2,47 @@
 body{
     background: url("https://img.freepik.com/free-photo/light-brown-wooden-textured-background_53876-75016.jpg?size=626&ext=jpg");
 }
+.full-body{
+    border: 1px solid pink;
+    padding: 20px;
+    border-radius: 25px;
+    background-color: rgba(255,255,255,0.45);
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+}
+.text-area{
+    width: 300px;
+}
+.checkboxes{
+     columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+}
+.label-checkbox{
+    display: flex;
+    justify-content: space-between;
+  border: 1px solid pink;
+}
+.description{
+    width: 30vw;
+    height: 10vh;
+}
+.submit-btn{
+    margin-top: 2em;
+    border-radius: 25px;
+    height: 3em;
+    width: 10em;
+}
 </style>
 
-<h1> CREATE A RECIPE! </h1>
+<h1> Create A Recipe! </h1>
 
 <%=form_with(model: @recipe) do |form|%>
-<div class="full_body">
+<div class="full-body">
 <label>Name</label>
     <%=form.text_field(:name)%>
         <br>
@@ -16,15 +51,22 @@ body{
         <br>
 <label>Description</label>
         <br>
-    <%=form.text_area(:description)%>
+    <%=form.text_area(:description, class: 'description')%>
         <br>
-<label>Add Ingredients: </label>
-    <%= form.collection_check_boxes(:ingredient_ids, @ingredients, :id, :name)%>
+<label>Ingredients: </label>
         <br>
-
+        <div class="checkboxes">
+    <%=form.collection_check_boxes(:ingredient_ids, @ingredients, :id, :name) do |i| %>
+        <%= i.label class:'label-checkbox' do%>
+        <%=i.check_box + i.text%>
+        <%end%>
+        <%end%>
+        </div>
+        <br>
+        
 <label>Upload a picture</label>
     <%=form.text_field(:recipe_url)%>
         <br>
-    <%=form.submit%>
+    <%=form.submit 'Create Recipe', :class => 'submit-btn'%>
 <% end %>
 </div>

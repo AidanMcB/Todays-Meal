@@ -26,8 +26,10 @@ h1{
     font-size: 38px;
 }
 .button{
-    width: 150px;
-    font-size: 18px;
+    font-size: 16px;
+    border-radius: 25px;
+    height: 3em;
+    width: 10em;
 
 }
 </style>
@@ -38,7 +40,7 @@ h1{
     <% end %>
     </ul>
 <% end %>
-<h1>Please Sign up to Create recipes!</h1>
+<h1>Please Sign Up to Create Recipes!</h1>
 <%= form_with(model: @user) do |form| %>
 <br><br>
 <div class="new_user_body">
