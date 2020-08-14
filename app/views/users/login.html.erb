@@ -3,17 +3,29 @@ body{
     background: url("https://img.freepik.com/free-photo/light-brown-wooden-textured-background_53876-75016.jpg?size=626&ext=jpg");
 }
 h3{
-    margin-left: 10px;
+    text-shadow: 1px 1px white;
+    margin-top: 2em;
+    text-align: center;
     font-size: 38px;
 }
+a:visited {
+    text-decoration: none;
+    color: black;
+}
 .login_body{
-    margin-left: 25px;
+    border: 1px solid pink;
+    padding: 20px;
+    border-radius: 25px;
+    background-color: rgba(255,255,255,0.45);
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-size: 24px;
 }
 .login{
-    height: 100px;
-    width: 100px;
-    font-size: 28px;
+    font-size: 18px;
 }
 .error_style{
     color: red;
@@ -36,9 +48,9 @@ h3{
 <%= form.password_field(:password) %> 
 <br>   <br>
 <%= form.submit "Login", :class => "login" %>
-<%end %> 
+<%end %>
 <br>
 <br>
- <label> OR </label><br><br>
+ <label> or </label><br><br>
 
- <a href="/users/new">Sign-up</a>
+ <a href="/users/new">Sign-Up</a>

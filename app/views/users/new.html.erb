@@ -7,22 +7,27 @@ body{
     background: url("https://img.freepik.com/free-photo/light-brown-wooden-textured-background_53876-75016.jpg?size=626&ext=jpg");  
 }
 .new_user_body{
-    margin-left: 50px;
-    text-align: justify;
-    text-justify: inter-word;
+    border: 1px solid pink;
+    padding: 20px;
+    border-radius: 25px;
+    background-color: rgba(255,255,255,0.45);
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-size: 24px;
    
 }
 h1{
-    margin-left: 10px;
-    /*color: darkred;*/
+    text-shadow: 1px 1px white;
+    margin-top: 2em;
+    text-align: center;
     font-size: 38px;
 }
 .button{
-    height: 250px;
-    margin-left: 70px;
     width: 150px;
-    font-size: 40px;
+    font-size: 18px;
 
 }
 </style>
@@ -46,7 +51,7 @@ h1{
 <label> Enter a Password: </label>
     <%= form.password_field(:password) %>
         <br><br>
-<label> Add an image URL for your profile picture </label>
+<label> Image URL for your profile picture </label>
     <%=form.text_field(:img_url)%>
         <br><br>
 <%= form.submit "Create New User", :class => "button"%>
