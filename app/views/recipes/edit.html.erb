@@ -4,9 +4,15 @@ body{
     background: url("https://img.freepik.com/free-photo/light-brown-wooden-textured-background_53876-75016.jpg?size=626&ext=jpg");  
 }
 .edit_body{
-    margin-left: 50px;
-    text-align: justify;
-    text-justify: inter-word;
+    border: 1px solid pink;
+    padding: 20px;
+    border-radius: 25px;
+    background-color: rgba(255,255,255,0.45);
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-size: 24px;
    
 }
@@ -16,30 +22,41 @@ h1{
     font-size: 38px;
 }
 .button{
-    height: 250px;
-    margin-left: 70px;
-    width: 150px;
-    font-size: 40px;
-
+    margin-top: 2em;
+    font-size: 16px;
+    border-radius: 25px;
+    height: 3em;
+    width: 10em;
+}
+.text-area{
+    width: 15em;
+    height: 10em;
+}
+.url{
+    width: 15em;
 }
 </style>
-<%=form_for(@recipe, :url => {:action => 'update', :id => @recipe.id}) do |form|%>
 
 
+
 <%=form_for(@recipe, :url => {:action => 'update', :id => @recipe.id}) do |form|%>
-<div class="edit">
+<div class="edit_body">
 <label>Name</label>
+    <br>
     <%=form.text_field(:name)%>
     <br>
 <label>Category</label>
+    <br>
     <%=form.text_field(:category)%>
     <br>
 <label>Description</label>
-<%=form.text_field(:description)%>
-<br>
+    <br>
+<%=form.text_area(:description, :class => 'text-area')%>
+    <br>
 <label>Upload a picture</label>
-<%=form.text_field(:recipe_url)%>
-<br>
+    <br>
+<%=form.text_field(:recipe_url, :class => 'url')%>
+    <br>
 <%=form.submit "Submit", :class => "button" %>
 <% end %>
 </div>
